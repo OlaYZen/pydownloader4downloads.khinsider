@@ -22,3 +22,6 @@ or
 ```
 python downloader-mp3.py
 ```
+
+## Info
+The downloaded files will be in either "MP3 files" or "FLAC files". The folders will be created where the python files are located.

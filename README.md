@@ -23,7 +23,7 @@ The script tries to find FLAC, MP3 and M4A files. It prioritizes FLAC files but 
 
 The downloaded files will be "Audio files". By default the folder will be created where the python script is located.
 
-## Custom path download
+## Custom download path
 Find "album_directory = os.path.join('Audio files', sanitized_album_name)" and replace it with the following code
 
 ### Windows

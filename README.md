@@ -27,7 +27,7 @@ python downloader-mp3.py
 The downloaded files will be in either "MP3 files" or "FLAC files". The folders will be created where the python script is located.
 
 
-# Custom path download
+## Custom path download
 
 <details>
  <summary><b>MP3</b></summary>

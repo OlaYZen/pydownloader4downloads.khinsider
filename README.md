@@ -1,5 +1,5 @@
 # pydownloader4downloads.khinsider
-Download the album from downloads.khinsider using a multithreaded python script
+Download almost any album from downloads.khinsider using a multithreaded python script
 
 ## How to use the script
 

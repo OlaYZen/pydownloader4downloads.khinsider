@@ -149,6 +149,7 @@ async def main():
     else:
         # print(f"Number of CPU threads: {cpu_threads}")
         # print(f"Max workers for ThreadPoolExecutor: {max_workers}")
+        pass
 
     async with aiohttp.ClientSession() as session:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:

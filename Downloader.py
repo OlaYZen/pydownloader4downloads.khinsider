@@ -113,7 +113,8 @@ async def async_process_url(session, url, total_progress):
     audio_urls, album_name = find_audio_urls_and_album_name(html_content)
 
     if audio_urls and album_name:
-        sanitized_album_name = "".join(c if c.isalnum() or c in [' ', '-', '_'] else '' for c in album_name)
+        illegal_characters = ['<', '>', ':', '"', '/', '\\', '|', '?', '*']
+        sanitized_album_name = "".join(c if c.isalnum() or c not in illegal_characters else ' ' for c in album_name)
         album_directory = os.path.join('Audio files', sanitized_album_name)
         os.makedirs(album_directory, exist_ok=True)
 
@@ -121,7 +122,6 @@ async def async_process_url(session, url, total_progress):
             await async_download_audio_file(session, audio_url, album_directory, total_progress)
     else:
         pass  # No audio files found for the URL
-
 
 def get_cpu_threads():
     try:

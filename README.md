@@ -23,22 +23,22 @@ The script tries to find FLAC, MP3 and M4A files. It prioritizes FLAC files but 
 
 The downloaded files will be "Audio files". By default the folder will be created where the python script is located.
 
-## Custom download path
-Find "album_directory = os.path.join('Audio files', sanitized_album_name)" and replace it with the following code
+## Settings
+Some basic settings can be changed inside the settings.ini file. This file is needed to make the script work. Inside the file, you may find options such as changing the download path, amount of threads, priority of the downloads, and amount of retries before giving an error.
 
-### Windows
+Here is the default settings
 ```
-album_directory = os.path.join(r'C:\your\custom\path', sanitized_album_name)
+[Retries] ; Amount of retries per file before the script gives an error 
+max_retries = 2
+
+[Threads] ; Setting this value to 0, every thread on the cpu will be used
+max_workers = 1
+
+[Download]
+priority_order = flac, mp3, m4a
+; C:\example\for\windows
+; /example/for/linux
+; If empty, the downloads will be inside a folder called-
+; "Audio files" in the same location as the script
+download_path = 
 ```
-### Linux
-```
-album_directory = os.path.join('/your/custom/path', sanitized_album_name)
-```
-
-
-
-
-
-
-
-

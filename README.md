@@ -19,9 +19,11 @@ python Downloader.py
 ```
 
 ## Info
-The script tries to find FLAC, MP3 and M4A files. It prioritizes FLAC files but if there isnt then it tries MP3 and if both are misisng then M4A.
+The script might crash on PCs with less RAM. Recommended amount is 8GB
 
-The downloaded files will be "Audio files". By default the folder will be created where the python script is located.
+The script tries to find FLAC, MP3, and M4A files. It prioritizes FLAC files but if there isn't then it tries MP3 and if both are missing then M4A.
+
+The downloaded files will be "Audio files". By default, the folder will be created where the python script is located.
 
 ## Settings
 Some basic settings can be changed inside the settings.ini file. This file is needed to make the script work. Inside the file, you may find options such as changing the download path, amount of threads, priority of the downloads, and amount of retries before giving an error.

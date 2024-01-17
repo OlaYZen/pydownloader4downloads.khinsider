@@ -144,11 +144,11 @@ async def main():
     max_workers = int(config['Threads'].get('max_workers', fallback=cpu_threads))
 
     if max_workers == 0:
-        print(f"Using all available CPU threads: {cpu_threads}")
+        # print(f"Using all available CPU threads: {cpu_threads}")
         max_workers = None  # Set to None for ThreadPoolExecutor to use all available threads
     else:
-        print(f"Number of CPU threads: {cpu_threads}")
-        print(f"Max workers for ThreadPoolExecutor: {max_workers}")
+        # print(f"Number of CPU threads: {cpu_threads}")
+        # print(f"Max workers for ThreadPoolExecutor: {max_workers}")
 
     async with aiohttp.ClientSession() as session:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:

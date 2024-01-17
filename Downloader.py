@@ -8,6 +8,8 @@ from tqdm import tqdm
 import aiohttp
 import asyncio
 
+# Its often a file does not download on first try, This is here to try again if it fails.
+# And of course, if it fails 3 times then it will report an error to the user.
 MAX_RETRIES = 2
 
 url = input("Enter the URL: ")

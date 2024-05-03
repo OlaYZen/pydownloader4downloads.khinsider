@@ -40,7 +40,6 @@ max_workers = 1
 priority_order = flac, mp3, m4a
 ; C:\example\for\windows
 ; /example/for/linux
-; If empty, the downloads will be inside a folder called-
-; "Audio files" in the same location as the script
+; If empty, the downloads will be inside a folder called "Audio files" in the same location as the script
 download_path = 
 ```

@@ -1,45 +1,101 @@
-# pydownloader4[downloads.khinsider](https://downloads.khinsider.com/)
-Download almost any album from [downloads.khinsider](https://downloads.khinsider.com/) using a multithreaded python script
+# KHInsider Album Downloader
 
-## How to use the script
+> [!NOTE]
+> **NO ACCOUNT NEEDED:**
+> This script allows you to download entire albums **without** requiring a khinsider account, unlike the website which requires registration for bulk downloads.
 
-Download the source code by running git clone
-```
-git clone https://github.com/OlaYZen/pydownloader4downloads.khinsider.git
-```
+A high-performance, multithreaded Python script for downloading complete music albums from [downloads.khinsider.com](https://downloads.khinsider.com/). Perfect for downloading video game soundtracks and other music collections without requiring a khinsider account.
 
-Install the required python libraries by downloading the requirements.txt found in the source code and running the following command
-```
-pip install -r requirements.txt
-```
-Start the program using Python and enter the album URL of the website by running
+## Features
 
-```
-python Downloader.py
-```
+- 🎵 **Smart Quality Selection**: Automatically downloads the highest quality audio format available (FLAC → MP3 → M4A)
+- 🚫 **No Account Required**: Download entire albums without needing a khinsider account
+- ⚡ **Multithreaded Downloads**: Configurable concurrent downloads for maximum speed
+- 📁 **Organized Storage**: Creates clean folder structures with sanitized album names
+- 🔄 **Retry Logic**: Automatic retry mechanism for failed downloads
+- ⚙️ **Configurable Settings**: Customizable download paths, thread counts, and format priorities
+- 📊 **Progress Tracking**: Real-time download progress with visual indicators
 
-## Info
-The script might crash on PCs with less RAM. Recommended amount is 8GB
+## Installation
 
-The script tries to find FLAC, MP3, and M4A files. It prioritizes FLAC files but if there isn't then it tries MP3 and if both are missing then M4A.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/OlaYZen/pydownloader4downloads.khinsider.git
+   cd pydownloader4downloads.khinsider
+   ```
 
-The downloaded files will be "Audio files". By default, the folder will be created where the python script is located.
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Settings
-Some basic settings can be changed inside the settings.ini file. This file is needed to make the script work. Inside the file, you may find options such as changing the download path, amount of threads, priority of the downloads, and amount of retries before giving an error.
+## Usage
 
-Here is the default settings
-```
-[Retries] ; Amount of retries per file before the script gives an error 
-max_retries = 2
+1. **Run the script**
+   ```bash
+   python Downloader.py
+   ```
 
-[Threads] ; Setting this value to 0, every thread on the cpu will be used
-max_workers = 1
+2. **Enter the album URL** when prompted
+   ```
+   Enter the URL: https://downloads.khinsider.com/game-soundtrack/album-name
+   ```
 
+3. **Wait for download completion**
+   - Files will be organized in folders by album name
+   - Progress bars will show download status
+   - Failed downloads will be reported at the end
+
+## Configuration
+
+Customize the script behavior by editing `settings.ini`:
+
+### Download Settings
+```ini
 [Download]
-priority_order = flac, mp3, m4a
-; C:\example\for\windows
-; /example/for/linux
-; If empty, the downloads will be inside a folder called "Audio files" in the same location as the script
-download_path = 
+priority_order = flac, mp3, m4a    # Audio format preference
+download_path =                    # Custom download directory (optional)
 ```
+
+### Performance Settings
+```ini
+[Threads]
+max_workers = 1                    # Number of concurrent downloads (0 = use all CPU cores)
+
+[Retries]
+max_retries = 2                    # Retry attempts for failed downloads
+```
+
+### Example Custom Paths
+- **Windows**: `C:\Music\Downloads`
+- **Linux/Mac**: `/home/user/Music/Downloads`
+- **Leave empty** to use default `Audio files/` folder
+
+## System Requirements
+
+- **Python**: 3.7 or higher
+- **RAM**: 8GB recommended (4GB minimum)
+- **Storage**: Sufficient space for audio files
+- **Internet**: Stable connection for downloads
+
+## File Organization
+
+Downloads are organized as follows:
+```
+Audio files/
+└── Album Name (Platform) (Type) (Year)/
+    ├── 01. Track Name.flac
+    ├── 02. Track Name.flac
+    └── ...
+```
+
+## Troubleshooting
+
+- **Script crashes**: Reduce `max_workers` in settings.ini or ensure sufficient RAM
+- **Failed downloads**: Check internet connection; failed URLs will be listed at completion
+- **Slow performance**: Increase `max_workers` (but not beyond your CPU core count)
+- **Permission errors**: Ensure write permissions for the download directory
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
